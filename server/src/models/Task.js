@@ -56,6 +56,10 @@ const taskSchema = new mongoose.Schema(
             type:[String],
             default:[],
         },
+        estimatedHours:{
+            type:Number,
+            default:null,
+        },
         createdBy:{
             type:mongoose.Schema.Types.ObjectId,
             ref:"User",
