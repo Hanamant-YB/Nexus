@@ -3,7 +3,21 @@ const router = express.Router();
 const checkRole = require("../middlewares/checkRole");
 const{create,getTasksAll,getOneTaskById,taskUpdate,taskDelete} = require("../controllers/taskController");
 const {verifyToken} = require("../middlewares/verifyToken");
+const {createIntelligent} = require("../controllers/aiController");
 
+//AI endpoints - must be before/:id routes--
+router.post(
+    "/create-intelligent",
+    verifyToken,
+    checkRole("owner","admin"),
+    createIntelligent
+);
+
+
+
+
+
+//regular task endpoints
 //create task only owner and admin can create
 router.post("/tasks",verifyToken,checkRole("owner","admin"),create);
 
