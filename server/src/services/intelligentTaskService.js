@@ -33,7 +33,7 @@ const createIntelligentTask = async(taskData,userId)=>{
             //AI fields from gemini
             isAiGenerated:true,
             difficultyRating:aiResults.difficulty,
-            aiTags:aiResults.Tags,
+            aiTags:aiResults.tags,
             subTasks:aiResults.subTasks,
             estimatedHours:aiResults.estimatedHours,
         });

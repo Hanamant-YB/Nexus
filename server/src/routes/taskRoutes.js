@@ -7,14 +7,11 @@ const {createIntelligent} = require("../controllers/aiController");
 
 //AI endpoints - must be before/:id routes--
 router.post(
-    "/create-intelligent",
+    "/tasks/create-intelligent",
     verifyToken,
     checkRole("owner","admin"),
     createIntelligent
 );
-
-
-
 
 
 //regular task endpoints

@@ -1,4 +1,4 @@
-const geminiModel = require("../config/gemini");
+const ai = require("../config/gemini");
 // const {AppError}  = require("../middlewares/errorHandler");
 
 const analyzeTask = async(title,description = "")=>{
@@ -30,8 +30,13 @@ const analyzeTask = async(title,description = "")=>{
     `;
 
     try{
-        const result =  await geminiModel.generateContent(prompt);
-        const text = result.response.text().trim();
+        const result =  await ai.models.generateContent(
+            {
+                model:"gemini-2.5-flash",
+                contents:prompt,
+            }    
+        );
+        const text = result.text.trim();
 
         //we need to clean the response to remove all kind markdown because sometime gemini
 
@@ -45,10 +50,10 @@ const analyzeTask = async(title,description = "")=>{
 
         //validate the shape before returning
         if(
-            typeof parsad.difficulty !== "number" ||
+            typeof parsed.difficulty !== "number" ||
             !Array.isArray(parsed.tags) ||
             !Array.isArray(parsed.subTasks) ||
-            typeof parsad.estimatedHours !== "number"
+            typeof parsed.estimatedHours !== "number"
         ){
             throw new Error("Invalid AI response shape");
         }
