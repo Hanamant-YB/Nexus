@@ -8,7 +8,6 @@ const analyzeTask = async(title,description = "")=>{
     You are an expert project manager and software architect.
     Analyze the following task and return a json object. 
 
-
     Task title: "${title}"
     Task Description: "${description}"
 
@@ -70,7 +69,6 @@ const analyzeTask = async(title,description = "")=>{
             estimatedHours:null,
         }; 
     }
-
 };
 
 module.exports = {analyzeTask};
