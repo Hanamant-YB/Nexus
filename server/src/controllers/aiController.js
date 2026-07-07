@@ -26,7 +26,7 @@ const createIntelligent = async(req,res,next)=>{
             });
         }
 
-        const task = await createIntelligentTask(req.body,req.user.id);
+        const task = await createIntelligentTask(req.body,req.user.id,req);
         
         res.status(200).json({
             success:true,

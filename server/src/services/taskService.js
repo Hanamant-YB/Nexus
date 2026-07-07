@@ -98,7 +98,7 @@ const getTaskById = async(taskId,userId)=>{
 
 //update a task
 
-const updateTask = async(taskId,updates,userId)=>{
+const updateTask = async(taskId,updates,userId,req)=>{
   const task = await Task.findById(taskId);
   if(!task){
     throw new AppError("Task not found",404);
@@ -126,7 +126,7 @@ const updateTask = async(taskId,updates,userId)=>{
 
 //delete a task
 
-const deleteTask = async(taskId) =>{
+const deleteTask = async(taskId,req) =>{
     const task = await Task.findById(taskId);
     if(!task){
         throw new AppError("Task not found",404);

@@ -37,6 +37,9 @@ const createIntelligentTask = async(taskData,userId)=>{
             subTasks:aiResults.subTasks,
             estimatedHours:aiResults.estimatedHours,
         });
+//emit to project room-all members see new AI task instantly
+        const io = (req)=>{req.app.get("io")};
+        io.to(`project:${projectId}`).emit("task:created",task);
     return task;
 };
 

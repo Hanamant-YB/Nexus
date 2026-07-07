@@ -3,7 +3,7 @@ const{createTask,getTasks,getTaskById,updateTask,deleteTask} = require("../servi
 //post for task create
 const create = async(req,res,next)=>{
     try{
-        const task = await createTask(req.body,req.user.id);
+        const task = await createTask(req.body,req.user.id,req);
         res.status(201).json({
             success:true,
             data:task,
@@ -43,7 +43,7 @@ const getOneTaskById  =  async(req,res,next)=>{
 //patch task:id/updates/:userId
 const taskUpdate = async(req,res,next)=>{
     try{
-        const task = await updateTask(req.params.id,req.body,req.user.id);
+        const task = await updateTask(req.params.id,req.body,req.user.id,req);
         res.status(200).json({
             success:true,
             data:task,
@@ -56,7 +56,7 @@ const taskUpdate = async(req,res,next)=>{
 //delete task:id
 const taskDelete = async(req,res,next)=>{
     try{
-        const task = await deleteTask(req.params.id);
+        const task = await deleteTask(req.params.id,req);
         res.status(200).json({
             success:true,
             message:"Task is deleted successfully",
