@@ -28,9 +28,9 @@ const RegisterPage =()=>{
 
         try{
             //Register the user
-            await api.post("/api/auth/register",form);
+            await api.post("/auth/register",form);
             //imediatly log them in 
-            const loginRes = await api.post("/api/auth/login",{
+            const loginRes = await api.post("/auth/login",{
                 email:form.email,
                 password:form.password
             });

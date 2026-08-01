@@ -5,7 +5,7 @@ import userAuthStore from "../store/authStore";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const { login } = useAuthStore();
+  const { login } = userAuthStore();
 
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
@@ -23,6 +23,7 @@ const LoginPage = () => {
     try {
       const res = await api.post("/auth/login", form);
       const { token, user } = res.data.data;
+      // console.log(token,user);
 
       // Save to Zustand store + localStorage
       login(token, user);

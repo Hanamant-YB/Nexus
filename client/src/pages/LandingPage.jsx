@@ -26,13 +26,13 @@ const LandingPage=()=>{
                 <div className="text-xs font-medium bg-indigo-950 text-indigo-400 px-3 py-1 rounded-full mb-6 border border-indigo-800">
                     Powered by Gemini AI
                 </div>
-                <h1 className="text-5xl font-bold mb-4 max-w-2xl leading-tight"> 
-                    Project management that
-                    <span className="text=indigo-400">thinks for you</span>
+                <h1 className="text-5xl font-bold mb-4 max-w-2xl leading-tight">
+                     Project management that
+                    <span className="text-indigo-400"> thinks for you</span>
                 </h1>
-                <P className="text-gray-400 text-lg mb-8 max-w-xl">
+                <p className="text-gray-400 text-lg mb-8 max-w-xl">
                     Nexus AI decomposes your tasks,rates difficulty, assigns tags,and updates your team in real time - automatically.
-                </P>
+                </p>
                 <button
                     onClick={()=>navigate("/register")}
                     className="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-base font-medium transition"

@@ -1,6 +1,6 @@
 import {create} from "zustand";
 
-const useAuthStore = create((set)=>({
+const userAuthStore = create((set)=>({
     //readd the from localstorage on startup
     //so the user stays logged in after refersh
     token:localStorage.getItem("nexus_token")||null,
@@ -8,8 +8,12 @@ const useAuthStore = create((set)=>({
 
     //called after successful login or register
     login:(token,user)=>{
+        // console.log(token,user);
         localStorage.setItem("nexus_token",token);
         localStorage.setItem("nexus_user", JSON.stringify(user));
+
+        // console.log("token form localStorage",localStorage.getItem("nexus_token"));
+        // console.log("user form localStorage",localStorage.getItem("nexus_user"));
         set({token,user});
     },
 

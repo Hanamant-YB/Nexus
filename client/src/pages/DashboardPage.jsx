@@ -2,7 +2,9 @@ import userAuthStore from "../store/authStore";
 import { useNavigate } from "react-router-dom";
 
 const DashboardPage =()=>{
+        console.log("Dashboard component rendered");
         const {user,logout} = userAuthStore();
+        console.log(user.name);
         const navigate = useNavigate();
 
         const handleLogout =()=>{
